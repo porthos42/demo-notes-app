@@ -1,5 +1,6 @@
 {
-  "name": "notes",
+  "name": "notesV2",
+  "stage": "dev",
   "region": "us-west-2",
   "main": "stacks/index.js"
 }
