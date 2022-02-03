@@ -6,6 +6,7 @@ export default function handler(lambda) {
 
         // Start debugger
         debug.init(event);
+        
         try {
             // Run the Lambda
             body = await lambda(event, context);
