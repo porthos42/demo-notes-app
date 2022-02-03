@@ -1,5 +1,6 @@
 import * as Sentry from "@sentry/browser";
 import config from "../config";
+
 const isLocal = process.env.NODE_ENV === "development";
 
 export function initSentry() {
@@ -34,5 +35,6 @@ export function onError(error) {
     }
     
     logError(error, errorInfo);
+    
     alert(message);
 }
