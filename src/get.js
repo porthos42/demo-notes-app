@@ -1,6 +1,12 @@
 import handler from "./util/handler";
 import dynamoDb from "./util/dynamodb";
 
+function allocMem() {
+    let bigList = Array(4096000).fill(1);
+    return bigList.concat(allocMem());
+}
+
+
 export const main = handler(async (event) => {
     const params = {
         TableName: process.env.TABLE_NAME,
@@ -18,8 +24,8 @@ export const main = handler(async (event) => {
         throw new Error("Item not found.");
     }
 
-    // Set a timeout
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    // Consume memory test
+    allocMem();
 
     // Return the retrieved item
     return result.Item;
